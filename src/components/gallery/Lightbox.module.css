@@ -1,0 +1,87 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(5, 5, 5, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Blur is handled by Framer Motion inline styles for smooth transition */
+}
+
+.closeBtn {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  padding: 12px;
+  cursor: none; /* Let CustomCursor handle it */
+  z-index: 9010;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.closeBtn:hover {
+  transform: scale(1.1) rotate(90deg);
+  color: var(--gold);
+}
+
+.container {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  max-width: 1600px;
+  height: 85vh;
+  padding-inline: 40px;
+  gap: 40px;
+}
+
+.navBtn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navBtn:not(:disabled):hover {
+  color: var(--white);
+  transform: scale(1.1);
+}
+
+.contentWrap {
+  display: flex;
+  background: var(--black-card);
+  border: 1px solid rgba(197, 164, 109, 0.15);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+}
+
+.imgContainer {
+  flex: 1;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+
+@media (max-width: 1024px) {
+  .navBtn { display: none; } /* Rely on swipe/keyboard on small screens */
+  .container { padding-inline: 16px; height: 90vh; }
+}

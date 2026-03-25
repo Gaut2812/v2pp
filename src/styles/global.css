@@ -1,0 +1,162 @@
+/* =============================================
+   GSPHOTOGRAPHY — Global Styles
+   Design System: Editorial Light (Cream)
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&display=swap');
+
+:root {
+  /* Editorial Colour Palette */
+  --primary:              #af2b3e;
+  --primary-hover:        #8e0f28;
+  --primary-container:    #ff757f;
+  --on-primary:           #ffffff;
+  --secondary:            #78582f;
+  --secondary-container:  #fed39f;
+  --on-secondary:         #ffffff;
+  --tertiary:             #74584a;
+  --tertiary-container:   #bb9a89;
+  --outline:              #817569;
+  --outline-variant:      #d2c4b7;
+  --surface:              #faf9f6;
+  --surface-dim:          #dbdad7;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low:    #f4f3f1;
+  --surface-container:        #efeeeb;
+  --surface-container-high:   #e9e8e5;
+  --surface-container-highest:#e3e2e0;
+  --on-surface:           #1a1c1a;
+  --on-surface-variant:   #4f453b;
+  --on-background:        #1a1c1a;
+  --background:           #faf9f6;
+  --inverse-surface:      #2f312f;
+  --inverse-on-surface:   #f2f1ee;
+
+  /* Typography */
+  --font-headline: 'Newsreader', Georgia, serif;
+  --font-body:     'Noto Serif', 'Times New Roman', serif;
+  --font-label:    'Manrope', system-ui, sans-serif;
+
+  /* Legacy aliases for Gallery components */
+  --black:       #1a1c1a;
+  --black-soft:  #efeeeb;
+  --black-card:  #f4f3f1;
+  --black-hover: #e9e8e5;
+  --gold:        #af2b3e;
+  --gold-light:  #ff757f;
+  --gold-dark:   #8e0f28;
+  --white:       #faf9f6;
+  --white-dim:   #4f453b;
+  --white-muted: #817569;
+  --font-display: 'Newsreader', Georgia, serif;
+
+  /* Spacing */
+  --container-max:   1536px;
+  --container-px:    clamp(1.5rem, 5vw, 3rem);
+  --section-py:      clamp(80px, 10vw, 128px);
+  --nav-h:           88px;
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-luxury:   cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-base: 0.4s var(--ease-luxury);
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--surface-container-low); }
+::-webkit-scrollbar-thumb { background: var(--outline); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* ---- Typography ---- */
+h1, h2, h3, h4 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--on-surface);
+}
+
+p {
+  color: var(--on-surface-variant);
+  line-height: 1.75;
+}
+
+a { color: inherit; text-decoration: none; }
+img, video { display: block; max-width: 100%; }
+ul, ol { list-style: none; }
+
+/* ---- Layout ---- */
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+}
+
+.section {
+  padding-block: var(--section-py);
+}
+
+/* ---- Gold line (now burgundy) ---- */
+.gold-line {
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--primary);
+  margin-block: 1rem;
+}
+.gold-line--center { margin-inline: auto; }
+
+/* ---- Shared eyebrow ---- */
+.eyebrow {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* ---- Animations ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---- Selection ---- */
+::selection {
+  background: var(--primary-container);
+  color: var(--on-primary);
+}

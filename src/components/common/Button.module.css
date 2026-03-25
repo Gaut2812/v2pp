@@ -1,0 +1,52 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.35s var(--ease-luxury);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Primary — filled gold */
+.primary {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(197, 164, 109, 0.25);
+}
+
+/* Outline — transparent with gold border */
+.outline {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* WhatsApp — green */
+.whatsapp {
+  background: #25D366;
+  color: #fff;
+}
+
+.whatsapp:hover {
+  background: #1ebe5d;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+  transform: translateY(-1px);
+}

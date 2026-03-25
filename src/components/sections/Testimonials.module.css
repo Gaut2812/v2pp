@@ -1,0 +1,39 @@
+.section {
+  background: var(--surface-container-low);
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.quoteWrap {
+  max-width: 64rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .quoteWrap {
+    margin-left: 0;
+    padding-left: 1.5rem;
+  }
+}
+
+.blockquote {
+  font-family: var(--font-headline);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-style: normal;
+  font-weight: 400;
+  color: var(--secondary);
+  line-height: 1.4;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.cite {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-style: normal;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--outline);
+}

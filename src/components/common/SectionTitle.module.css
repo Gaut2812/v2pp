@@ -1,0 +1,32 @@
+.wrapper {
+  margin-bottom: 56px;
+}
+
+.center {
+  text-align: center;
+}
+
+.eyebrow {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.title {
+  color: var(--white);
+}
+
+.subtitle {
+  max-width: 540px;
+  margin-top: 16px;
+  color: var(--white-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.center .subtitle {
+  margin-inline: auto;
+}

@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.pill {
+  position: relative;
+  padding: 10px 24px;
+  border: 1px solid rgba(197, 164, 109, 0.25);
+  background: transparent;
+  color: var(--white-muted);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  overflow: hidden;
+}
+
+.pill.active {
+  color: var(--black);
+  border-color: var(--gold);
+}
+
+.pill:not(.active):hover {
+  color: var(--white);
+  border-color: rgba(197, 164, 109, 0.5);
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  z-index: 0;
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+}

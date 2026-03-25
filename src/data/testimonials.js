@@ -1,0 +1,42 @@
+export const testimonials = [
+  {
+    id: 1,
+    name: 'Priya & Karthik',
+    location: 'Chennai',
+    text: 'V2 Photography captured every emotion of our Tamil wedding perfectly. The way they framed the Thaali moment brought us to tears when we saw it. Simply magical.',
+    rating: 5,
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop',
+  },
+  {
+    id: 2,
+    name: 'Swetha & Ravi',
+    location: 'Hyderabad',
+    text: 'Our Telugu wedding photos are breathtaking. Every detail — the silk sarees, the flowers, the rituals — was captured with such artistry. We get compliments daily.',
+    rating: 5,
+    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop',
+  },
+  {
+    id: 3,
+    name: 'Ananya & Surya',
+    location: 'Pondicherry',
+    text: 'The pre-wedding shoot at the French Quarter was a dream. They made us completely comfortable and the photos look like a magazine editorial. Absolutely worth it!',
+    rating: 5,
+    avatar: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=80&h=80&fit=crop',
+  },
+  {
+    id: 4,
+    name: 'Meera & Vishnu',
+    location: 'Coimbatore',
+    text: 'Professional, creative, and incredibly talented. They blended into our wedding seamlessly and the candid shots are extraordinary. Best investment of our wedding budget.',
+    rating: 5,
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop',
+  },
+  {
+    id: 5,
+    name: 'Divya & Arun',
+    location: 'Madurai',
+    text: 'From the first call to album delivery, the experience was flawless. They understood our families, our culture, and our story. The album is a priceless treasure.',
+    rating: 5,
+    avatar: 'https://images.unsplash.com/photo-1502767089025-6572583495b9?w=80&h=80&fit=crop',
+  },
+];
