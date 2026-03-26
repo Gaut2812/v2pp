@@ -6,7 +6,7 @@ const dir = './src/assets/gallery';
 const files = fs.readdirSync(dir);
 
 for (const file of files) {
-  if (file.toLowerCase().endsWith('.jpg') || file.toLowerCase().endsWith('.jpeg')) {
+  if (file.endsWith('.JPG') || file.endsWith('.jpeg')) {
     if (file.includes('_optimized')) continue;
     
     const filePath = path.join(dir, file);
@@ -17,6 +17,7 @@ for (const file of files) {
     console.log(`Processing ${file}...`);
     try {
       await sharp(filePath)
+        .rotate()
         .resize({ width: 1920, withoutEnlargement: true })
         .jpeg({ quality: 80 })
         .toFile(newPath);
