@@ -7,7 +7,7 @@ import styles from './Hero.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-import HERO_IMG from '@/assets/gallery/22.jpg';
+const HERO_IMG = "https://res.cloudinary.com/dra8c0dyn/image/upload/v1774532768/v2pp_gallery/22.jpg";
 
 export default function Hero() {
   const heroRef = useRef(null);
