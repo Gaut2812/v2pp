@@ -2,10 +2,8 @@
   position: fixed;
   top: 0;
   width: 100%;
-  height: var(--nav-h);
   z-index: 50;
   background: rgba(250, 249, 246, 0.85);
-
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: box-shadow 0.4s ease, background 0.4s ease;
@@ -20,14 +18,13 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 1.25rem 1.25rem;
 }
 
 @media (min-width: 768px) {
-  .inner { padding: 0 3rem; }
+  .inner { padding: 1.5rem 3rem; }
 }
 
 /* Logo */
@@ -174,11 +171,13 @@
 /* Mobile Drawer */
 .drawer {
   position: fixed;
-  inset: 0;
+  left: 0;
+  right: 0;
   top: var(--nav-h, 88px);
-  background: var(--surface);
-  z-index: 49;
-  padding: 3rem 2rem;
+  bottom: 0;
+  background-color: #faf9f6;
+  z-index: 999;
+  padding: 2rem 1.5rem;
   border-top: 1px solid var(--outline-variant);
   overflow-y: auto;
 }
