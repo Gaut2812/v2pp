@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import ScrollReveal from '@/components/common/ScrollReveal';
 import styles from './About.module.css';
-import karthikPhoto from '@/assets/karthik photo.png';
+import karthikPhoto from '@/assets/karthik-photo.png';
 
 const PORTRAIT_IMG = karthikPhoto;
 
