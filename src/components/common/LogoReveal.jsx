@@ -90,12 +90,12 @@ export default function LogoReveal({ onFadeStart, onComplete }) {
       delay(9400, () => {
         if (stageRef.current) stageRef.current.classList.add(styles.done);
         setSkipVisible(false);
+        document.body.style.overflow = '';
         if (onFadeStart) onFadeStart();
       });
 
       // Signal completion
       delay(11100, () => {
-        document.body.style.overflow = '';
         if (onComplete) onComplete();
       });
     }
@@ -132,11 +132,11 @@ export default function LogoReveal({ onFadeStart, onComplete }) {
     // Fade out stage immediately
     setTimeout(() => {
       if (stageRef.current) stageRef.current.classList.add(styles.done);
+      document.body.style.overflow = '';
       if (onFadeStart) onFadeStart();
       
       // Wait for fade transition, then signal
       setTimeout(() => {
-        document.body.style.overflow = '';
         if (onComplete) onComplete();
       }, 1400);
     }, 50); // Small initial tick to ensure style propagation
