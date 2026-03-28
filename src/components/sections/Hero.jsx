@@ -116,7 +116,7 @@ export default function Hero() {
           </div>
           {/* Exhibit badge */}
           <div className={styles.badge}>
-            <span className={styles.badgeEyebrow}>Current Project</span>
+            <span className={`${styles.badgeEyebrow} hero-eyebrow`}>Current Project</span>
             <p className={styles.badgeTitle}>A Union in Bloom</p>
           </div>
           {/* Decorative block */}

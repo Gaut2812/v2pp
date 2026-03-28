@@ -42,10 +42,10 @@ export default function LogoReveal({ onFadeStart, onComplete }) {
 
     if (!skipped) {
       // Phase 1 - Wrapper appears
-      delay(initialDelay + 500 * speedFactor, () => wrapRef.current?.classList.add(styles.ready));
+      delay(initialDelay + 300 * speedFactor, () => wrapRef.current?.classList.add(styles.ready));
 
       // Phase 2 - Main path draws
-      delay(initialDelay + 900 * speedFactor, () => {
+      delay(initialDelay + 700 * speedFactor, () => {
         const p = paths[0];
         if (p) {
           p.style.transition = `stroke-dashoffset ${isMobile ? 2 : 4}s cubic-bezier(0.4, 0, 0.2, 1)`;
