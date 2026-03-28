@@ -38,12 +38,14 @@ export default function LogoReveal({ onFadeStart, onComplete }) {
     const isMobile = window.innerWidth < 768;
     const speedFactor = isMobile ? 0.4 : 1; // 60% faster on mobile
 
+    const initialDelay = 1000;
+
     if (!skipped) {
       // Phase 1 - Wrapper appears
-      delay(500 * speedFactor, () => wrapRef.current?.classList.add(styles.ready));
+      delay(initialDelay + 500 * speedFactor, () => wrapRef.current?.classList.add(styles.ready));
 
       // Phase 2 - Main path draws
-      delay(900 * speedFactor, () => {
+      delay(initialDelay + 900 * speedFactor, () => {
         const p = paths[0];
         if (p) {
           p.style.transition = `stroke-dashoffset ${isMobile ? 2 : 4}s cubic-bezier(0.4, 0, 0.2, 1)`;
@@ -53,13 +55,13 @@ export default function LogoReveal({ onFadeStart, onComplete }) {
 
       // Special for pre-loading: start app mounting MUCH earlier (Phase 2.5)
       // This allows the browser to pre-fetch chunks while the SVG draws.
-      delay(1500 * speedFactor, () => {
+      delay(initialDelay + 1500 * speedFactor, () => {
         if (onFadeStart) onFadeStart();
       });
 
       // Phase 3 - Detail paths draw
       [1, 2, 3, 4, 5].forEach((idx, i) => {
-        delay((3200 + i * 200) * speedFactor, () => {
+        delay(initialDelay + (3200 + i * 200) * speedFactor, () => {
           const p = paths[idx];
           if (p) {
             p.style.transition = 'stroke-dashoffset 0.9s cubic-bezier(0.4, 0, 0.2, 1)';
@@ -69,7 +71,7 @@ export default function LogoReveal({ onFadeStart, onComplete }) {
       });
 
       // Phase 4 - Fill floods in
-      delay((4400) * speedFactor, () => {
+      delay(initialDelay + (4400) * speedFactor, () => {
         paths.forEach(p => {
           if (!p) return;
           p.style.fill = '#1a1410';
@@ -88,25 +90,26 @@ export default function LogoReveal({ onFadeStart, onComplete }) {
       });
 
       // Show skip button earlier on mobile
-      delay(1000 * speedFactor, () => setSkipVisible(true));
+      delay(initialDelay + 1000 * speedFactor, () => setSkipVisible(true));
 
       // Phase 6 - Zoom in logo before fade
-      delay((6400) * speedFactor, () => {
+      delay(initialDelay + (6400) * speedFactor, () => {
         if (wrapRef.current) wrapRef.current.classList.add(styles.zoomIn);
       });
 
       // Phase 7 - Exit stage
-      delay((6400) * speedFactor, () => {
+      delay(initialDelay + (6400) * speedFactor, () => {
         if (stageRef.current) stageRef.current.classList.add(styles.done);
         setSkipVisible(false);
         document.body.style.overflow = '';
       });
 
       // Signal completion
-      delay((8000) * speedFactor, () => {
+      delay(initialDelay + (8000) * speedFactor, () => {
         if (onComplete) onComplete();
       });
     }
+
 
 
     return () => {
