@@ -25,16 +25,21 @@ function AppContent() {
       )}
       
       {appMounted && (
-        <>
+        <div style={{ 
+          opacity: introDone ? 1 : 0, 
+          visibility: introDone ? 'visible' : 'hidden',
+          transition: 'opacity 0.8s ease'
+        }}>
           <ScrollToTop />
           <CustomCursor />
           <AppRoutes />
           <WhatsAppButton />
-        </>
+        </div>
       )}
     </>
   );
 }
+
 
 function App() {
   return (

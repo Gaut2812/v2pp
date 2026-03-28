@@ -14,7 +14,10 @@ export default function Hero() {
   const ctaRef  = useRef(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      // Desktop: Full cinematic animations
       gsap.set('.hero-word', { yPercent: 110, opacity: 0 });
       gsap.set('.hero-eyebrow', { opacity: 0 });
       gsap.set(ctaRef.current, { opacity: 0, y: 24 });
@@ -41,10 +44,31 @@ export default function Hero() {
         y: 60,
         ease: 'none',
       });
-    }, heroRef);
+    });
 
-    return () => ctx.revert();
+    mm.add("(max-width: 767px)", () => {
+      // Mobile: Simplified animations for performance
+      gsap.set('.hero-word', { opacity: 0, y: 10 });
+      gsap.set(ctaRef.current, { opacity: 0 });
+
+      gsap.to('.hero-word', {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.05,
+        ease: 'power2.out'
+      });
+      gsap.to(ctaRef.current, { opacity: 1, duration: 0.8, delay: 0.5 });
+      
+      // No parallax on mobile
+    });
+
+    return () => mm.revert();
   }, []);
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const optimizedHeroImg = `${HERO_IMG}?f_auto,q_auto,w_${isMobile ? 800 : 1600}`;
+
 
   return (
     <section className={styles.hero} ref={heroRef}>
@@ -83,11 +107,12 @@ export default function Hero() {
         <div className={styles.imgCol}>
           <div className={styles.imgWrap}>
             <img
-              src={HERO_IMG}
+              src={optimizedHeroImg}
               alt="Editorial portrait"
               className={styles.img}
               loading="eager"
             />
+
           </div>
           {/* Exhibit badge */}
           <div className={styles.badge}>

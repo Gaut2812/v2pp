@@ -12,10 +12,10 @@ export default function GalleryPreview() {
   const [feat, ...rest] = featuredPhotos.slice(0, 5);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      // Clear previous inline styles to avoid double initialization issues
-      gsap.set('.gp-item', { clearProps: 'all' });
-      
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      // Desktop: Full stagger animation
       gsap.fromTo('.gp-item',
         { y: 60, opacity: 0 },
         {
@@ -26,14 +26,36 @@ export default function GalleryPreview() {
           scrollTrigger: {
             trigger: gridRef.current,
             start: 'top 80%',
-            toggleActions: 'play none none reverse' // Plays forward on enter, reverses on leave backwards
+            toggleActions: 'play none none reverse'
           },
         }
       );
-    }, gridRef);
+    });
 
-    return () => ctx.revert();
+    mm.add("(max-width: 767px)", () => {
+      // Mobile: Simplified animation
+      gsap.fromTo('.gp-item',
+        { y: 30, opacity: 0 },
+        {
+          y: 0, opacity: 1,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: 'top 90%',
+          },
+        }
+      );
+    });
+
+    return () => mm.revert();
   }, []);
+
+  const getOptimizedUrl = (url, width = 800) => {
+    return `${url}?f_auto,q_auto,w_${width}`;
+  };
+
 
   return (
     <section className={`section ${styles.section}`}>
@@ -51,8 +73,9 @@ export default function GalleryPreview() {
           {feat && (
             <Link to="/gallery" className={`${styles.item} ${styles.feature} gp-item`}>
               <div className={styles.imgWrap}>
-                <img src={feat.url} alt={feat.title} loading="lazy" />
+                <img src={getOptimizedUrl(feat.url, 1200)} alt={feat.title} loading="lazy" />
               </div>
+
               <div className={styles.overlay}>
                 <span className={styles.overlayEyebrow}>Project 01</span>
                 <span className={styles.overlayTitle}>{feat.title}</span>
@@ -64,8 +87,9 @@ export default function GalleryPreview() {
           {rest[0] && (
             <Link to="/gallery" className={`${styles.item} ${styles.secondary} gp-item`}>
               <div className={styles.imgWrap}>
-                <img src={rest[0].url} alt={rest[0].title} loading="lazy" style={{ objectPosition: 'center 20%' }} />
+                <img src={getOptimizedUrl(rest[0].url, 800)} alt={rest[0].title} loading="lazy" style={{ objectPosition: 'center 20%' }} />
               </div>
+
               <div className={`${styles.overlay} ${styles.centerLabel}`}>
                 <span className={styles.editorialLabel}>Editorial</span>
               </div>
@@ -77,8 +101,9 @@ export default function GalleryPreview() {
             {rest[1] && (
               <Link to="/gallery" className={`${styles.item} ${styles.splitA}`}>
                 <div className={styles.imgWrap}>
-                  <img src={rest[1].url} alt={rest[1].title} loading="lazy" style={{ filter: 'sepia(0.3)' }} />
+                  <img src={getOptimizedUrl(rest[1].url, 800)} alt={rest[1].title} loading="lazy" style={{ filter: 'sepia(0.3)' }} />
                 </div>
+
               </Link>
             )}
             <Link to="/gallery" className={`${styles.item} ${styles.splitB}`}>
