@@ -43,12 +43,23 @@ export default function Testimonials() {
       <div className="container">
         <div className={styles.quoteWrap}>
           <blockquote className={styles.blockquote} ref={textRef}>
-            {text.split('').map((char, index) => (
-              <span key={index} className="char" style={{ opacity: 0, display: 'inline-block', whiteSpace: char === ' ' ? 'pre' : 'normal' }}>
-                {char}
+            {text.split(' ').map((word, wordIndex, wordArr) => (
+              <span key={wordIndex} className={styles.wordSpan}>
+                {word.split('').map((char, charIndex) => (
+                  <span key={charIndex} className="char" style={{ opacity: 0, display: 'inline-block' }}>
+                    {char}
+                  </span>
+                ))}
+                {/* Add a space after each word, except for the last one */}
+                {wordIndex !== wordArr.length - 1 && (
+                  <span className="char" style={{ opacity: 0, display: 'inline-block' }}>
+                    &nbsp;
+                  </span>
+                )}
               </span>
             ))}
           </blockquote>
+
         </div>
       </div>
     </section>

@@ -12,10 +12,15 @@
 
 @media (max-width: 768px) {
   .quoteWrap {
-    margin-left: 0;
-    padding-left: 1.5rem;
+    padding-inline: 1.5rem;
+    text-align: center;
   }
 }
+
+.wordSpan {
+  display: inline-block;
+}
+
 
 .blockquote {
   font-family: var(--font-headline);
